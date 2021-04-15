@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var velocity := Vector2.ZERO
 export var movement_speed = 200
 
+export var bullet_scene: PackedScene
+
 var screen_size
 
 func _ready() -> void:
@@ -20,3 +22,11 @@ func handle_input():
 	velocity = Vector2(input_x, input_y).normalized() * movement_speed
 	
 	velocity = move_and_slide(velocity)
+	
+	if (Input.is_action_pressed("shoot")):
+		shoot()
+
+func shoot():
+	var bullet = bullet_scene.instance()
+	bullet.position = position
+	get_parent().get_node("BulletHolder").add_child(bullet)
