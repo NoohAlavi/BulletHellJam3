@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 export var velocity := Vector2.ZERO
 export var movement_speed = 200
 
