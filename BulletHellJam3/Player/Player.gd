@@ -28,6 +28,7 @@ func handle_input():
 		shoot()
 
 func shoot():
-	var bullet = bullet_scene.instance()
+	var bullet: Bullet = bullet_scene.instance()
 	bullet.position = position
+	bullet.direction = position.direction_to(get_global_mouse_position())
 	get_parent().get_node("BulletHolder").add_child(bullet)
