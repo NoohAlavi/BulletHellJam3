@@ -27,8 +27,22 @@ func handle_input():
 	if (Input.is_action_pressed("shoot")):
 		shoot()
 
+func get_controller_dir() -> Vector2:
+	return Vector2(
+		Input.get_action_strength("shoot_right") - Input.get_action_strength("shoot_left"),
+		Input.get_action_strength("shoot_down") - Input.get_action_strength("shoot_up")
+	)
+
 func shoot():
 	var bullet: Bullet = bullet_scene.instance()
+	var dir
+	var c_dir = get_controller_dir()
+	
+	if (len(Input.get_connected_joypads()) > 0 and c_dir > Vector2.ZERO):
+		dir = c_dir
+	else:
+		dir = position.direction_to(get_global_mouse_position())
+	
 	bullet.position = position
-	bullet.direction = position.direction_to(get_global_mouse_position())
+	bullet.direction = dir
 	get_parent().get_node("BulletHolder").add_child(bullet)
