@@ -9,8 +9,7 @@ onready var health = max_health
 onready var player = world.get_node("Player")
 
 func _ready():
-	#shoot()
-	pass
+	randomize()
 
 func damage(dmg: float):
 	health -= dmg
@@ -27,6 +26,8 @@ func _on_BurstTimer_timeout() -> void:
 	shoot_burst("PurpleBullet")
 
 func shoot():
+	if randf() >= 0.5:
+		return
 	var bullet = bullet_scene.instance()
 	bullet.direction = position.direction_to(player.position)
 	bullet.position = position
