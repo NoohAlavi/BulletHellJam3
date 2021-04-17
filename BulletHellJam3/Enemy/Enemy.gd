@@ -3,13 +3,30 @@ extends KinematicBody2D
 export var bullet_scene: PackedScene
 export var max_health: float = 10
 
+onready var world = get_parent().get_parent()
 onready var health = max_health
-onready var player = get_parent().get_parent().get_node("Player")
+onready var player = world.get_node("Player")
+
+func _ready():
+	shoot()
 
 func damage(dmg: float):
 	health -= dmg
 	if health <= 0:
+		player.score += 5
 		queue_free()
 
 func _on_ShootTimer_timeout() -> void:
+	shoot()
+
+func _on_BurstTimer_timeout() -> void:
+	pass # Replace with function body.
+
+func shoot():
 	var bullet = bullet_scene.instance()
+	bullet.direction = position.direction_to(player.position)
+	bullet.position = position
+	bullet.is_enemy_bullet = true
+	bullet.speed = 250
+	bullet.anim = "BlueBullet"
+	world.get_node("BulletHolder").add_child(bullet)

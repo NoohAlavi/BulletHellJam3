@@ -8,8 +8,12 @@ var screen_size
 func _ready() -> void:
 	randomize()
 	screen_size = get_viewport_rect().size
+	spawn_enemies()
 
 func _on_EnemySpawnTimer_timeout() -> void:
+	spawn_enemies()
+
+func spawn_enemies():
 	for i in range(enemies_to_spawn):
 		var enemy = enemy_scene.instance()
 		enemy.position = Vector2(

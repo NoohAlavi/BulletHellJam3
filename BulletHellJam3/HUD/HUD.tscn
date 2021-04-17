@@ -2,7 +2,7 @@
 
 [ext_resource path="res://HUD/HUD.gd" type="Script" id=1]
 
-[node name="HUD" type="Control"]
+[node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -10,7 +10,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Info" type="ColorRect" parent="."]
+[node name="DebugInfo" type="ColorRect" parent="."]
+visible = false
 margin_right = 256.0
 margin_bottom = 160.0
 color = Color( 0, 0, 0, 0.815686 )
@@ -18,7 +19,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Info"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugInfo"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -29,7 +30,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FPSLabel" type="Label" parent="Info/VBoxContainer"]
+[node name="FPSLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 margin_right = 236.0
 margin_bottom = 14.0
 text = "FPS: 60"
@@ -37,7 +38,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MemUsage" type="Label" parent="Info/VBoxContainer"]
+[node name="MemUsage" type="Label" parent="DebugInfo/VBoxContainer"]
 margin_top = 18.0
 margin_right = 236.0
 margin_bottom = 32.0
@@ -46,7 +47,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WindowSize" type="Label" parent="Info/VBoxContainer"]
+[node name="WindowSize" type="Label" parent="DebugInfo/VBoxContainer"]
 margin_top = 36.0
 margin_right = 236.0
 margin_bottom = 50.0
@@ -55,43 +56,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="IsControllerConnected" type="Label" parent="Info/VBoxContainer"]
+[node name="IsControllerConnected" type="Label" parent="DebugInfo/VBoxContainer"]
 margin_top = 54.0
 margin_right = 236.0
 margin_bottom = 68.0
 text = "Controller Connected: False"
 
-[node name="BulletCountLabel" type="Label" parent="Info/VBoxContainer"]
+[node name="BulletCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 margin_top = 72.0
 margin_right = 236.0
 margin_bottom = 86.0
 text = "Spawned Bullets: 0"
 
-[node name="EnemyCountLabel" type="Label" parent="Info/VBoxContainer"]
+[node name="EnemyCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 margin_top = 90.0
 margin_right = 236.0
 margin_bottom = 104.0
 text = "Spawned Enemies: 0"
 
-[node name="PlayerHealthLabel" type="Label" parent="Info/VBoxContainer"]
+[node name="PlayerHealthLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 margin_top = 108.0
 margin_right = 236.0
 margin_bottom = 122.0
 text = "Player Health: 100 / 100"
 
-[node name="NextSpawnTime" type="Label" parent="Info/VBoxContainer"]
+[node name="NextSpawnTime" type="Label" parent="DebugInfo/VBoxContainer"]
 margin_top = 126.0
 margin_right = 236.0
 margin_bottom = 140.0
 text = "Time Before Next Spawn: 0s"
 
-[node name="HealthLabel" type="Label" parent="."]
-margin_left = 832.0
-margin_top = 528.0
-margin_right = 918.0
-margin_bottom = 542.0
+[node name="HUD" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -70.0
+margin_right = 52.0
+margin_bottom = -50.0
 rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthLabel" type="Label" parent="HUD"]
+margin_right = 62.0
+margin_bottom = 14.0
 text = "HP: 100%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+margin_top = 18.0
+margin_right = 62.0
+margin_bottom = 32.0
+text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }

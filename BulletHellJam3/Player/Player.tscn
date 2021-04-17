@@ -10,6 +10,8 @@ extents = Vector2( 16, 16 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+movement_speed = 300
+max_health = 50
 bullet_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]

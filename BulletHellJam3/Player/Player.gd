@@ -7,6 +7,7 @@ export var max_health = 100
 export var bullet_scene: PackedScene
 
 var screen_size
+var score = 0
 onready var health = max_health
 
 func _ready() -> void:
@@ -49,7 +50,12 @@ func shoot():
 	
 	bullet.position = position
 	bullet.direction = dir
-	bullet.anim = "FireBullet"
+	bullet.speed = 500
+	bullet.is_enemy_bullet = false
+	bullet.anim = "RedBullet"
 	get_parent().get_node("BulletHolder").add_child(bullet)
-
-	yield(get_tree().create_timer(0.25), "timeout")
+	
+func damage(dmg):
+	health -= dmg
+	if health <= 0:
+		get_tree().reload_current_scene()
