@@ -1,12 +1,13 @@
 extends KinematicBody2D
 
-
 export var velocity := Vector2.ZERO
 export var movement_speed = 200
+export var max_health = 100
 
 export var bullet_scene: PackedScene
 
 var screen_size
+onready var health = max_health
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -26,6 +27,9 @@ func handle_input():
 	
 	if (Input.is_action_pressed("shoot")):
 		shoot()
+		
+func _process(delta: float) -> void:
+	$Sprite.look_at(get_global_mouse_position())
 
 func get_controller_dir() -> Vector2:
 	return Vector2(
@@ -41,8 +45,11 @@ func shoot():
 	if (len(Input.get_connected_joypads()) > 0 and c_dir > Vector2.ZERO):
 		dir = c_dir
 	else:
-		dir = position.direction_to(get_global_mouse_position())
+		dir = position.direction_to($Sprite.get_global_mouse_position())
 	
 	bullet.position = position
 	bullet.direction = dir
+	bullet.anim = "FireBullet"
 	get_parent().get_node("BulletHolder").add_child(bullet)
+
+	yield(get_tree().create_timer(0.25), "timeout")
