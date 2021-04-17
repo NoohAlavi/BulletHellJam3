@@ -38,5 +38,5 @@ func shoot_burst():
 		var bullet = bullet_scene.instance()
 		bullet.position = position
 		bullet.is_enemy_bullet = true
-		bullet.anim = "GreenBullet"
+		bullet.anim = "PurpleBullet"
 		world.add_bullet(bullet)

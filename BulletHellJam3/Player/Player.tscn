@@ -39,8 +39,11 @@ texture = ExtResource( 4 )
 shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 14.88, 1.12 )
+scale = Vector2( 0.445313, 0.445313 )
 texture = ExtResource( 1 )
-texture_scale = 0.07
+texture_scale = 0.04
+energy = 0.75
 shadow_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
