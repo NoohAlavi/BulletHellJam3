@@ -1,26 +1,32 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Bullet/RedBullet.png" type="Texture" id=1]
+[ext_resource path="res://Bullet/Assets/BlueBullet.png" type="Texture" id=1]
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=2]
-[ext_resource path="res://Bullet/Shoot.wav" type="AudioStream" id=3]
-[ext_resource path="res://Bullet/PurpleBullet.png" type="Texture" id=5]
-[ext_resource path="res://Bullet/BlueBullet.png" type="Texture" id=6]
+[ext_resource path="res://Bullet/Assets/Shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://Bullet/Assets/GreenBullet.png" type="Texture" id=4]
+[ext_resource path="res://Bullet/Assets/RedBullet.png" type="Texture" id=5]
+[ext_resource path="res://Bullet/Assets/PurpleBullet.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "PurpleBullet",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "BlueBullet",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "RedBullet",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "GreenBullet",
 "speed": 5.0
 } ]
 
@@ -35,7 +41,7 @@ speed = 500.0
 position = Vector2( 4.76837e-07, -2.84217e-14 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
-animation = "RedBullet"
+animation = "GreenBullet"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BlueBullet.png-31932fc19afee497555444e0b97156b1.stex"
+path="res://.import/PurpleBullet.png-505099820fae1907c6eae98baa872611.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bullet/BlueBullet.png"
-dest_files=[ "res://.import/BlueBullet.png-31932fc19afee497555444e0b97156b1.stex" ]
+source_file="res://Bullet/Assets/PurpleBullet.png"
+dest_files=[ "res://.import/PurpleBullet.png-505099820fae1907c6eae98baa872611.stex" ]
 
 [params]
 

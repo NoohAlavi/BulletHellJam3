@@ -8,10 +8,12 @@ onready var health = max_health
 onready var player = world.get_node("Player")
 
 func _ready():
-	shoot()
+	#shoot()
+	pass
 
 func damage(dmg: float):
 	health -= dmg
+	$AnimationPlayer.play("Hurt")
 	if health <= 0:
 		player.score += 5
 		queue_free()
@@ -36,5 +38,5 @@ func shoot_burst():
 		var bullet = bullet_scene.instance()
 		bullet.position = position
 		bullet.is_enemy_bullet = true
-		bullet.anim = "PurpleBullet"
+		bullet.anim = "GreenBullet"
 		world.add_bullet(bullet)
