@@ -21,3 +21,6 @@ func spawn_enemies():
 			rand_range(0, screen_size.y)
 		)
 		$EnemyHolder.add_child(enemy)
+		
+func add_bullet(bullet):
+	$BulletHolder.add_child(bullet)

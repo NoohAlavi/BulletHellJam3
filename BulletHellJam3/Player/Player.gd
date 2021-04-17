@@ -53,9 +53,10 @@ func shoot():
 	bullet.speed = 500
 	bullet.is_enemy_bullet = false
 	bullet.anim = "RedBullet"
-	get_parent().get_node("BulletHolder").add_child(bullet)
+	get_parent().add_bullet(bullet)
 	
 func damage(dmg):
 	health -= dmg
+	$AnimationPlayer.play("Hurt")
 	if health <= 0:
 		get_tree().reload_current_scene()

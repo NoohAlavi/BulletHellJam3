@@ -20,7 +20,7 @@ func _on_ShootTimer_timeout() -> void:
 	shoot()
 
 func _on_BurstTimer_timeout() -> void:
-	pass # Replace with function body.
+	shoot_burst()
 
 func shoot():
 	var bullet = bullet_scene.instance()
@@ -29,4 +29,12 @@ func shoot():
 	bullet.is_enemy_bullet = true
 	bullet.speed = 250
 	bullet.anim = "BlueBullet"
-	world.get_node("BulletHolder").add_child(bullet)
+	world.add_bullet(bullet)
+
+func shoot_burst():
+	for i in range(10):
+		var bullet = bullet_scene.instance()
+		bullet.position = position
+		bullet.is_enemy_bullet = true
+		bullet.anim = "PurpleBullet"
+		world.add_bullet(bullet)
