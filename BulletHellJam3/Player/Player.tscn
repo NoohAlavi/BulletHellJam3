@@ -5,8 +5,8 @@
 [ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Player_2.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10.9765, 8.71705 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Hurt"
@@ -32,11 +32,12 @@ bullet_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -9.53674e-07, 9.53674e-07 )
-scale = Vector2( 0.125, 0.125 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+position = Vector2( -1.88503, 0 )
+shape = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 14.88, 1.12 )

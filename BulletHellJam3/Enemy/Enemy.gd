@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var bullet_scene: PackedScene
 export var max_health: float = 10
+export var burst_bullet_count = 10
 
 onready var world = get_parent().get_parent()
 onready var health = max_health
@@ -16,13 +17,14 @@ func damage(dmg: float):
 	$AnimationPlayer.play("Hurt")
 	if health <= 0:
 		player.score += 5
+		shoot_burst("GreenBullet")
 		queue_free()
 
 func _on_ShootTimer_timeout() -> void:
 	shoot()
 
 func _on_BurstTimer_timeout() -> void:
-	shoot_burst()
+	shoot_burst("PurpleBullet")
 
 func shoot():
 	var bullet = bullet_scene.instance()
@@ -33,10 +35,18 @@ func shoot():
 	bullet.anim = "BlueBullet"
 	world.add_bullet(bullet)
 
-func shoot_burst():
-	for i in range(10):
+func shoot_burst(col):
+	
+	var angle = 360 / burst_bullet_count
+	
+	for i in range(burst_bullet_count):
+		
+		var dir = Vector2(0, 1).rotated(deg2rad(angle * i))
+		
 		var bullet = bullet_scene.instance()
 		bullet.position = position
 		bullet.is_enemy_bullet = true
-		bullet.anim = "PurpleBullet"
+		bullet.anim = col
+		bullet.direction = dir
+		bullet.speed = 100
 		world.add_bullet(bullet)
