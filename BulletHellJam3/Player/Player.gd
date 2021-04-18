@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var velocity := Vector2.ZERO
 export var movement_speed = 200
 export var max_health = 100
+export var is_invincible: bool = true
 
 export var bullet_scene: PackedScene
 
@@ -12,6 +13,7 @@ onready var health = max_health
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	$AnimationPlayer.play("Invincible")
 
 func _physics_process(delta: float) -> void:
 	handle_input()
@@ -56,7 +58,21 @@ func shoot():
 	get_parent().add_bullet(bullet)
 	
 func damage(dmg):
+	if is_invincible:
+		return
 	health -= dmg
+	is_invincible = true
 	$AnimationPlayer.play("Hurt")
+	make_invincible()
 	if health <= 0:
 		get_tree().reload_current_scene()
+
+func make_invincible():
+	is_invincible = true
+	yield(get_tree().create_timer(0.5), "timeout")
+	$AnimationPlayer.play("Invincible")
+	$InvincibiltyTimer.start()
+
+
+func _on_InvincibiltyTimer_timeout() -> void:
+	is_invincible = false
