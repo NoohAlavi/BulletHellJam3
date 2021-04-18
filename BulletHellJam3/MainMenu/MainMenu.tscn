@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Bullet/Assets/RedBullet.png" type="Texture" id=6]
 [ext_resource path="res://Bullet/Assets/PurpleBullet.png" type="Texture" id=7]
 [ext_resource path="res://Bullet/Flight.wav" type="AudioStream" id=8]
+[ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=9]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -26,6 +27,7 @@ font_data = ExtResource( 2 )
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -281,3 +283,4 @@ __meta__ = {
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]

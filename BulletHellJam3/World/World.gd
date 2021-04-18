@@ -5,6 +5,7 @@ export var min_enemies_to_spawn: int
 export var max_enemies_to_spawn: int
 
 var screen_size
+onready var spawn_timer: Timer = $EnemySpawnTimer
 
 func _ready() -> void:
 	randomize()
@@ -13,6 +14,11 @@ func _ready() -> void:
 
 func _on_EnemySpawnTimer_timeout() -> void:
 	spawn_enemies()
+	
+func _process(delta: float) -> void:
+	if $EnemyHolder.get_child_count() == 0:
+		spawn_enemies()
+		spawn_timer.start()
 
 func spawn_enemies():
 	var enemies_to_spawn = round(rand_range(min_enemies_to_spawn, max_enemies_to_spawn))

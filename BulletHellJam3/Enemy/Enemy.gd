@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var bullet_scene: PackedScene
 export var max_health: float = 10
 export var burst_bullet_count = 10
+export var follow_speed: float
 
 onready var world = get_parent().get_parent()
 onready var health = max_health
@@ -19,6 +20,10 @@ func damage(dmg: float):
 		player.score += 5
 		shoot_burst("GreenBullet")
 		queue_free()
+		
+func follow():
+	var velocity = position.direction_to(player.position) * follow_speed
+	velocity = move_and_slide(velocity)
 
 func _on_ShootTimer_timeout() -> void:
 	shoot()
@@ -52,3 +57,6 @@ func shoot_burst(col):
 		bullet.direction = dir
 		bullet.speed = 100
 		world.add_bullet(bullet)
+
+func _physics_process(delta: float) -> void:
+	follow()
