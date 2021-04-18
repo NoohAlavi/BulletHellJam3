@@ -30,8 +30,8 @@ func update_debug():
 		$DebugInfo.visible = !$DebugInfo.visible
 
 func update_hud():
-	hud.get_node("HealthLabel").text = "HP: " + str((player.health / player.max_health) * 100) + "%"
+	hud.get_node("HealthLabel").text = "HP: " + str(round((player.health / player.max_health) * 100)) + "%"
 	hud.get_node("ScoreLabel").text = "Score: " + str(player.score)
 	var is_invincible = "Yes" if player.is_invincible else "No"
 	hud.get_node("InvincibleLabel").text = "Invincible: " + str(is_invincible)
-	
+	hud.get_node("InvincibleLabel").modulate = Color(0, 255, 0) if player.is_invincible else Color(255, 0, 0)

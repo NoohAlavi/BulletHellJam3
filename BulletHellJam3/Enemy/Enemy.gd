@@ -10,6 +10,7 @@ onready var player = world.get_node("Player")
 
 func _ready():
 	randomize()
+	shoot()
 
 func damage(dmg: float):
 	health -= dmg
