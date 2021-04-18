@@ -1,6 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Player/Player_2.png" type="Texture" id=3]
+[ext_resource path="res://Enemy/Enemy.png" type="Texture" id=4]
+[ext_resource path="res://Bullet/Assets/GreenBullet.png" type="Texture" id=5]
+[ext_resource path="res://Bullet/Assets/RedBullet.png" type="Texture" id=6]
+[ext_resource path="res://Bullet/Assets/PurpleBullet.png" type="Texture" id=7]
+[ext_resource path="res://Bullet/Flight.wav" type="AudioStream" id=8]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -8,6 +15,13 @@ glow_enabled = true
 glow_levels/1 = true
 glow_bloom = 0.25
 glow_blend_mode = 0
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 1
+outline_color = Color( 0.117647, 0, 0.941176, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -19,12 +33,173 @@ __meta__ = {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Bg" type="ColorRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
+[node name="EntityVisuals" type="Node2D" parent="."]
+
+[node name="Enemy" type="Sprite" parent="EntityVisuals"]
+position = Vector2( 685.794, 210.5 )
+rotation = -0.523599
+scale = Vector2( 6, 6 )
+texture = ExtResource( 4 )
+
+[node name="Enemy2" type="Sprite" parent="EntityVisuals"]
+position = Vector2( 906.677, 260.023 )
+rotation = 0.354437
+scale = Vector2( 8, 8 )
+texture = ExtResource( 4 )
+
+[node name="Enemy3" type="Sprite" parent="EntityVisuals"]
+position = Vector2( 857.112, 473.129 )
+rotation = -0.201211
+scale = Vector2( 7, 7 )
+texture = ExtResource( 4 )
+
+[node name="Player_2" type="Sprite" parent="EntityVisuals"]
+position = Vector2( 712, 368 )
+rotation = -0.523599
+scale = Vector2( 0.515625, 0.46875 )
+texture = ExtResource( 3 )
+
+[node name="BulletVisuals" type="Node2D" parent="."]
+
+[node name="GreenBullet" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 792, 208 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="GreenBullet2" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 968, 408 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="GreenBullet5" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 496, 376 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="GreenBullet6" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 952, 552 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="GreenBullet7" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 464, 48 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="GreenBullet3" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 680, 520 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="GreenBullet4" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 848, 40 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="PurpleBullet" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 872, 352 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="PurpleBullet2" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 968, 152 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="PurpleBullet3" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 520, 256 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="PurpleBullet6" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 200, 528 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="PurpleBullet7" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 88, 72 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="PurpleBullet8" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 432, 192 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="PurpleBullet4" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 608, 56 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="PurpleBullet5" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 504, 440 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="RedBullet" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 400, 280 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet2" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 976, 336 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet3" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 712, 288 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet4" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 776, 528 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet5" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 720, 40 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet6" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 128, 248 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet7" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 288, 184 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet8" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 304, 520 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet9" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 352, 32 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet10" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 120, 504 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="RedBullet11" type="Sprite" parent="BulletVisuals"]
+position = Vector2( 536, 560 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="Title" type="Label" parent="."]
 margin_left = 136.0
 margin_top = 88.0
 margin_right = 908.0
@@ -37,3 +212,72 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -412.0
+margin_top = -156.0
+margin_right = 403.0
+margin_bottom = 300.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="Buttons"]
+margin_top = 117.0
+margin_right = 815.0
+margin_bottom = 188.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "> Play"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="Button" parent="Buttons"]
+margin_top = 192.0
+margin_right = 815.0
+margin_bottom = 263.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "> Credits"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+margin_top = 267.0
+margin_right = 815.0
+margin_bottom = 338.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "> Quit"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
