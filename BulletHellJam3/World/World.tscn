@@ -18,6 +18,7 @@ script = ExtResource( 3 )
 enemy_scene = ExtResource( 4 )
 min_enemies_to_spawn = 3
 max_enemies_to_spawn = 5
+events = [ "Blindness", "Heal", "Score Multiplier" ]
 
 [node name="bg" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
@@ -41,4 +42,9 @@ autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="TenSecondTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
+[connection signal="timeout" from="TenSecondTimer" to="." method="_on_TenSecondTimer_timeout"]

@@ -17,7 +17,7 @@ func damage(dmg: float):
 	health -= dmg
 	$AnimationPlayer.play("Hurt")
 	if health <= 0:
-		player.score += 5
+		player.score += 10 * player.score_multiplier
 		shoot_burst("GreenBullet")
 		queue_free()
 		

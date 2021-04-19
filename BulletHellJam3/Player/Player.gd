@@ -9,6 +9,7 @@ export var bullet_scene: PackedScene
 
 var screen_size
 var score = 0
+var score_multiplier = 1
 onready var health = max_health
 
 func _ready() -> void:
@@ -72,7 +73,18 @@ func make_invincible():
 	yield(get_tree().create_timer(0.5), "timeout")
 	$AnimationPlayer.play("Invincible")
 	$InvincibiltyTimer.start()
-
+	
+func multiply_score():
+	score_multiplier = 2
+	get_parent().get_node("HUDLayer/HUD/HUD/ScoreLabel").set("custom_colors/font_color", Color(1, 1, 0))
+	$MultipTimer.start()
 
 func _on_InvincibiltyTimer_timeout() -> void:
 	is_invincible = false
+
+func _on_ScoreTimer_timeout() -> void:
+	score += score_multiplier
+
+func _on_MultipTimer_timeout() -> void:
+	score_multiplier = 1
+	get_parent().get_node("HUDLayer/HUD/HUD/ScoreLabel").set("custom_colors/font_color", Color(1, 1, 1))

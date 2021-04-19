@@ -78,4 +78,12 @@ shape = SubResource( 4 )
 [node name="InvincibiltyTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="MultipTimer" type="Timer" parent="."]
+wait_time = 7.0
 [connection signal="timeout" from="InvincibiltyTimer" to="." method="_on_InvincibiltyTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="MultipTimer" to="." method="_on_MultipTimer_timeout"]

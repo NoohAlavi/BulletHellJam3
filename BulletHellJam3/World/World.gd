@@ -3,6 +3,10 @@ extends Node2D
 export var enemy_scene: PackedScene
 export var min_enemies_to_spawn: int
 export var max_enemies_to_spawn: int
+export var events: Array = [
+	
+]
+onready var player = $Player
 
 var screen_size
 onready var spawn_timer: Timer = $EnemySpawnTimer
@@ -32,3 +36,24 @@ func spawn_enemies():
 		
 func add_bullet(bullet):
 	$BulletHolder.add_child(bullet)
+
+func _on_TenSecondTimer_timeout() -> void:
+	var event = events[round(rand_range(0, len(events) - 1))]
+	print(event)
+	
+	var event_label = $HUDLayer/HUD.event_label
+	event_label.show()
+	event_label.text = "Event: " + event
+	
+	if event == "Blindness":
+		$HUDLayer/HUD/AnimationPlayer.play("Blindness")
+	elif event == "Heal":
+		if player.health < player.max_health:
+			player.health += 1
+	elif event == "Score Multiplier":
+		player.multiply_score()
+	else:
+		print("Error! Invalid Event " + event)
+		
+	yield(get_tree().create_timer(2), "timeout")
+	event_label.hide()

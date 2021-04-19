@@ -7,6 +7,7 @@ onready var timer: Timer = world.get_node("EnemySpawnTimer")
 
 onready var debug_info = $DebugInfo/VBoxContainer
 onready var hud = $HUD
+onready var event_label = $EventLabel
 
 func _process(delta: float) -> void:
 	update_hud()
@@ -32,6 +33,5 @@ func update_debug():
 func update_hud():
 	hud.get_node("HealthLabel").text = "HP: " + str(round((player.health / player.max_health) * 100)) + "%"
 	hud.get_node("ScoreLabel").text = "Score: " + str(player.score)
-	var is_invincible = "Yes" if player.is_invincible else "No"
-	hud.get_node("InvincibleLabel").text = "Invincible: " + str(is_invincible)
-	hud.get_node("InvincibleLabel").modulate = Color(0, 255, 0) if player.is_invincible else Color(255, 0, 0)
+	hud.get_node("TenSecLabel").text = "Next Event: " + str(round(world.get_node("TenSecondTimer").time_left)) + "s"
+	$HealthBar.value = player.health
