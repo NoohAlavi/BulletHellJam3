@@ -47,11 +47,12 @@ func _on_TenSecondTimer_timeout() -> void:
 	
 	if event == "Blindness":
 		$HUDLayer/HUD/AnimationPlayer.play("Blindness")
-	elif event == "Heal":
-		if player.health < player.max_health:
-			player.health += 1
+	elif event == "Invincibility":
+		player.make_invincible()
 	elif event == "Score Multiplier":
 		player.multiply_score()
+	elif event == "Spawn Enemies":
+		spawn_enemies()
 	else:
 		print("Error! Invalid Event " + event)
 		

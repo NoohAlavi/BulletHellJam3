@@ -8,7 +8,7 @@
 
 [sub_resource type="Animation" id=2]
 resource_name = "Blindness"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -16,7 +16,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.5 ),
+"times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
@@ -120,6 +120,12 @@ margin_top = 126.0
 margin_right = 236.0
 margin_bottom = 140.0
 text = "Time Before Next Spawn: 0s"
+
+[node name="NextEventTime" type="Label" parent="DebugInfo/VBoxContainer"]
+margin_top = 144.0
+margin_right = 236.0
+margin_bottom = 158.0
+text = "Time Before Next Event: 0s"
 
 [node name="HUD" type="VBoxContainer" parent="."]
 anchor_top = 1.0

@@ -218,13 +218,12 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
 [node name="Title" type="Label" parent="."]
-margin_left = 136.0
 margin_top = 88.0
-margin_right = 908.0
+margin_right = 1024.0
 margin_bottom = 153.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "Neo Hell"
+text = "Unnamed Bullet Hell Game"
 align = 1
 valign = 1
 __meta__ = {

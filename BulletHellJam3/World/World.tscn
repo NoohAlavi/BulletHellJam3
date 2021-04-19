@@ -18,7 +18,7 @@ script = ExtResource( 3 )
 enemy_scene = ExtResource( 4 )
 min_enemies_to_spawn = 3
 max_enemies_to_spawn = 5
-events = [ "Blindness", "Heal", "Score Multiplier" ]
+events = [ "Blindness", "Invincibility", "Score Multiplier", "Spawn Enemies" ]
 
 [node name="bg" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
