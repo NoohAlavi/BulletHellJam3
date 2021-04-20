@@ -30,6 +30,7 @@ max_health = 5.0
 follow_speed = 50.0
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 
@@ -46,5 +47,15 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Hurt = SubResource( 2 )
+
+[node name="SpawnParticles" type="CPUParticles2D" parent="."]
+amount = 32
+spread = 128.23
+gravity = Vector2( 0, 0 )
+initial_velocity = 96.56
+initial_velocity_random = 0.27
+color = Color( 0.960784, 0, 0.933333, 1 )
+hue_variation = -0.04
+hue_variation_random = 1.0
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 [connection signal="timeout" from="BurstTimer" to="." method="_on_BurstTimer_timeout"]

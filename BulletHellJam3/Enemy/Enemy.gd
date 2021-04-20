@@ -4,6 +4,7 @@ export var bullet_scene: PackedScene
 export var max_health: float = 10
 export var burst_bullet_count = 10
 export var follow_speed: float
+export var spawned: bool = false
 
 onready var world = get_parent().get_parent()
 onready var health = max_health
@@ -11,9 +12,15 @@ onready var player = world.get_node("Player")
 
 func _ready():
 	randomize()
+	yield(get_tree().create_timer(2), "timeout")
+	$Sprite.show()
+	$SpawnParticles.hide()
+	spawned = true
 	shoot()
 
 func damage(dmg: float):
+	if not spawned:
+		return
 	health -= dmg
 	$AnimationPlayer.play("Hurt")
 	if health <= 0:
@@ -32,6 +39,8 @@ func _on_BurstTimer_timeout() -> void:
 	shoot_burst("PurpleBullet")
 
 func shoot():
+	if not spawned:
+		return
 	if randf() >= 0.5:
 		return
 	var bullet = bullet_scene.instance()
@@ -43,6 +52,9 @@ func shoot():
 	world.add_bullet(bullet)
 
 func shoot_burst(col):
+	
+	if not spawned:
+		return
 	
 	var angle = 360 / burst_bullet_count
 	
@@ -59,4 +71,6 @@ func shoot_burst(col):
 		world.add_bullet(bullet)
 
 func _physics_process(delta: float) -> void:
+	if not spawned:
+		return
 	follow()

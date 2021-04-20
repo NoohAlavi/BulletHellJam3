@@ -4,6 +4,7 @@ export var velocity := Vector2.ZERO
 export var movement_speed = 200
 export var max_health = 100
 export var is_invincible: bool = true
+export var bullet_dmg = 1
 
 export var bullet_scene: PackedScene
 
@@ -54,8 +55,9 @@ func shoot():
 	bullet.position = position
 	bullet.direction = dir
 	bullet.speed = 500
-	bullet.is_enemy_bullet = false
+	bullet.damage = bullet_dmg
 	bullet.anim = "RedBullet"
+	bullet.is_enemy_bullet = false
 	get_parent().add_bullet(bullet)
 	
 func damage(dmg):

@@ -53,6 +53,9 @@ func _on_TenSecondTimer_timeout() -> void:
 		player.multiply_score()
 	elif event == "Spawn Enemies":
 		spawn_enemies()
+	elif event == "Destroy All Bullets":
+		for bullet in $BulletHolder.get_children():
+			bullet.queue_free()
 	else:
 		print("Error! Invalid Event " + event)
 		
