@@ -5,13 +5,7 @@
 [ext_resource path="res://World/World.gd" type="Script" id=3]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/bg.png" type="Texture" id=5]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_levels/1 = true
-glow_bloom = 0.25
-glow_blend_mode = 0
+[ext_resource path="res://World/WorldEnvironment.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
@@ -40,8 +34,7 @@ layer = 2
 wait_time = 8.0
 autostart = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+[node name="WorldEnvironment" parent="." instance=ExtResource( 6 )]
 
 [node name="TenSecondTimer" type="Timer" parent="."]
 wait_time = 10.0

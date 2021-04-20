@@ -9,13 +9,7 @@
 [ext_resource path="res://Bullet/Assets/PurpleBullet.png" type="Texture" id=7]
 [ext_resource path="res://Bullet/Flight.wav" type="AudioStream" id=8]
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=9]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_levels/1 = true
-glow_bloom = 0.25
-glow_blend_mode = 0
+[ext_resource path="res://World/WorldEnvironment.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=2]
 size = 64
@@ -47,9 +41,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
 
 [node name="Bg" type="ColorRect" parent="."]
 margin_right = 1024.0
@@ -245,9 +236,9 @@ __meta__ = {
 }
 
 [node name="PlayButton" type="Button" parent="Buttons"]
-margin_top = 155.0
+margin_top = 117.0
 margin_right = 815.0
-margin_bottom = 226.0
+margin_bottom = 188.0
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
@@ -255,6 +246,23 @@ custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
 enabled_focus_mode = 0
 keep_pressed_outside = true
 text = "> Play"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlsButton" type="Button" parent="Buttons"]
+margin_top = 192.0
+margin_right = 815.0
+margin_bottom = 263.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "> Controls"
 flat = true
 align = 0
 __meta__ = {
@@ -280,9 +288,9 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="Button" parent="Buttons"]
-margin_top = 230.0
+margin_top = 267.0
 margin_right = 815.0
-margin_bottom = 301.0
+margin_bottom = 338.0
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
@@ -312,6 +320,9 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SceneTransition = SubResource( 3 )
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 10 )]
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="Buttons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
