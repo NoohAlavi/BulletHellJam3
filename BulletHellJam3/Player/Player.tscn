@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/light.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -38,10 +38,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 38.8065, 10.5205 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 3.05405, 7.57239 )
+extents = Vector2( 13.2215, 13.4971 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -54,9 +51,9 @@ position = Vector2( -9.53674e-07, 9.53674e-07 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 4 )
 
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 14.88, 1.12 )
-scale = Vector2( 0.445313, 0.445313 )
+[node name="Light2D" type="Light2D" parent="Sprite"]
+position = Vector2( 148.8, 11.2 )
+scale = Vector2( 4.45312, 4.45312 )
 texture = ExtResource( 1 )
 texture_scale = 0.04
 energy = 0.75
@@ -67,13 +64,8 @@ anims/Hurt = SubResource( 2 )
 anims/Invincible = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.701538, -0.631385 )
 scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 3 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( -7.28389, -0.297302 )
-shape = SubResource( 4 )
 
 [node name="InvincibiltyTimer" type="Timer" parent="."]
 wait_time = 3.0
