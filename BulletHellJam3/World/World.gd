@@ -56,6 +56,9 @@ func _on_TenSecondTimer_timeout() -> void:
 	elif event == "Destroy All Bullets":
 		for bullet in $BulletHolder.get_children():
 			bullet.queue_free()
+	elif event == "Heal":
+		if player.health < player.max_health:
+			player.health += 1
 	else:
 		print("Error! Invalid Event " + event)
 		

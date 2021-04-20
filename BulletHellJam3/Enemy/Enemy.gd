@@ -12,9 +12,13 @@ onready var player = world.get_node("Player")
 
 func _ready():
 	randomize()
+	$Sprite.hide()
+	$SpawnParticles.show()
+	$CollisionShape2D.set_deferred("disabled", true)
 	yield(get_tree().create_timer(2), "timeout")
 	$Sprite.show()
 	$SpawnParticles.hide()
+	$CollisionShape2D.set_deferred("disabled", false)
 	spawned = true
 	shoot()
 

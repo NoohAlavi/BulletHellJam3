@@ -17,8 +17,8 @@ glow_blend_mode = 0
 script = ExtResource( 3 )
 enemy_scene = ExtResource( 4 )
 min_enemies_to_spawn = 3
-max_enemies_to_spawn = 5
-events = [ "Blindness", "Invincibility", "Score Multiplier", "Spawn Enemies", "Destroy All Bullets" ]
+max_enemies_to_spawn = 4
+events = [ "Blindness", "Invincibility", "Score Multiplier", "Spawn Enemies", "Destroy All Bullets", "Heal" ]
 
 [node name="bg" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
@@ -37,7 +37,7 @@ layer = 2
 [node name="HUD" parent="HUDLayer" instance=ExtResource( 2 )]
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 8.0
 autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
