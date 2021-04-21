@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Timer 1 quarter For Bullet Hell.png-61481b9d0e6c72f8531d542c7a42cdd4.stex"
+path="res://.import/Timer_4.png-0afa8b60a10c71e13b4b217da0c0a3d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Timer 1 quarter For Bullet Hell.png"
-dest_files=[ "res://.import/Timer 1 quarter For Bullet Hell.png-61481b9d0e6c72f8531d542c7a42cdd4.stex" ]
+source_file="res://Assets/Sprites/Timer_4.png"
+dest_files=[ "res://.import/Timer_4.png-0afa8b60a10c71e13b4b217da0c0a3d8.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
