@@ -1,15 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Player/Player_2.png" type="Texture" id=3]
-[ext_resource path="res://Enemy/Enemy.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Red Square For Bullet Hell without face.png" type="Texture" id=4]
 [ext_resource path="res://Bullet/Assets/GreenBullet.png" type="Texture" id=5]
 [ext_resource path="res://Bullet/Assets/RedBullet.png" type="Texture" id=6]
 [ext_resource path="res://Bullet/Assets/PurpleBullet.png" type="Texture" id=7]
 [ext_resource path="res://Bullet/Flight.wav" type="AudioStream" id=8]
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=9]
 [ext_resource path="res://World/WorldEnvironment.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Sprites/Pink Square For Bullet Hell without face.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Green Square For Bullet Hell without face.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Fonts/aldo_the_apache/AldotheApache.tres" type="DynamicFont" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 64
@@ -55,19 +58,19 @@ __meta__ = {
 [node name="Enemy" type="Sprite" parent="EntityVisuals"]
 position = Vector2( 685.794, 210.5 )
 rotation = -0.523599
-scale = Vector2( 6, 6 )
-texture = ExtResource( 4 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 11 )
 
 [node name="Enemy2" type="Sprite" parent="EntityVisuals"]
 position = Vector2( 906.677, 260.023 )
 rotation = 0.354437
-scale = Vector2( 8, 8 )
-texture = ExtResource( 4 )
+scale = Vector2( 1.7, 1.7 )
+texture = ExtResource( 12 )
 
 [node name="Enemy3" type="Sprite" parent="EntityVisuals"]
 position = Vector2( 857.112, 473.129 )
 rotation = -0.201211
-scale = Vector2( 7, 7 )
+scale = Vector2( 1.3, 1.3 )
 texture = ExtResource( 4 )
 
 [node name="Player_2" type="Sprite" parent="EntityVisuals"]
@@ -217,6 +220,19 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "Unnamed Bullet Hell Game"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version" type="Label" parent="."]
+margin_top = 536.0
+margin_right = 1024.0
+margin_bottom = 601.0
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0.678431, 1, 0.905882, 1 )
+text = "Version: Beta"
+align = 1
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
