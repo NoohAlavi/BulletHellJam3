@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/aldo_the_apache/AldotheApache.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://HUD/health_bar_full.png" type="Texture" id=4]
 [ext_resource path="res://HUD/health_bar_empty.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Cursor For Bullet Hell.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Blindness"
@@ -52,6 +53,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+mouse_sprite = ExtResource( 6 )
 
 [node name="DebugInfo" type="ColorRect" parent="."]
 margin_right = 256.0

@@ -1,5 +1,7 @@
 extends Control
 
+export var mouse_sprite: Texture
+
 onready var world = get_parent().get_parent()
 
 onready var player = world.get_node("Player")
@@ -12,6 +14,7 @@ onready var event_label = $EventLabel
 func _process(delta: float) -> void:
 	update_hud()
 	update_debug()
+	Input.set_custom_mouse_cursor(mouse_sprite)
 
 func update_debug():
 	debug_info.get_node("FPSLabel").text = "FPS: " + str(Engine.get_frames_per_second())
