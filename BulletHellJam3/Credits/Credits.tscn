@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/aldo_the_apache/AldotheApache.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Credits/Credits.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fonts/aldo_the_apache/AldotheApache.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Music/MenuMusic.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=6]
 size = 64
@@ -126,6 +127,8 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "SceneTransition"
 anims/SceneTransition = SubResource( 5 )
+
+[node name="Music" parent="." instance=ExtResource( 5 )]
 [connection signal="pressed" from="Nooh" to="." method="_on_Nooh_pressed"]
 [connection signal="pressed" from="Nishy" to="." method="_on_Nishy_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

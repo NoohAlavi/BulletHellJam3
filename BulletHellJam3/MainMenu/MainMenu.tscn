@@ -7,7 +7,7 @@
 [ext_resource path="res://Bullet/Assets/GreenBullet.png" type="Texture" id=5]
 [ext_resource path="res://Bullet/Assets/RedBullet.png" type="Texture" id=6]
 [ext_resource path="res://Bullet/Assets/PurpleBullet.png" type="Texture" id=7]
-[ext_resource path="res://Bullet/Flight.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Music/MenuMusic.tscn" type="PackedScene" id=8]
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=9]
 [ext_resource path="res://World/WorldEnvironment.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Sprites/Pink Square For Bullet Hell without face.png" type="Texture" id=11]
@@ -320,9 +320,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-autoplay = true
+[node name="Music" parent="." instance=ExtResource( 8 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
