@@ -45,6 +45,7 @@ func _on_TenSecondTimer_timeout() -> void:
 	var event_label = $HUDLayer/HUD.event_label
 	event_label.show()
 	event_label.text = "Event: " + event
+	$EventNoise.play()
 	
 	if event == "Blindness":
 		$HUDLayer/HUD/AnimationPlayer.play("Blindness")

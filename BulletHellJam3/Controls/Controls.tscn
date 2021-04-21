@@ -101,6 +101,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label5" type="Label" parent="."]
+margin_left = 400.0
+margin_top = 448.0
+margin_right = 596.0
+margin_bottom = 462.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.937255, 0, 1 )
+text = "Toggle fullscreen: f"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BackButton" type="Button" parent="."]
 margin_left = 16.0
 margin_top = 544.0
