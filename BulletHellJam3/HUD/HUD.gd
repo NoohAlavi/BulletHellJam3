@@ -16,6 +16,9 @@ func _process(delta: float) -> void:
 	update_debug()
 	Input.set_custom_mouse_cursor(mouse_sprite)
 
+	if Input.is_action_just_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+
 func update_debug():
 	debug_info.get_node("FPSLabel").text = "FPS: " + str(Engine.get_frames_per_second())
 	debug_info.get_node("MemUsage").text = "Memory Usage: " + str(OS.get_static_memory_usage()) + "B"
