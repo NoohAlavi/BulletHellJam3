@@ -34,7 +34,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [node name="MainMenu" type="Control"]
@@ -286,10 +286,9 @@ __meta__ = {
 }
 
 [node name="CreditsButton" type="Button" parent="Buttons"]
-visible = false
-margin_top = 192.0
+margin_top = 267.0
 margin_right = 815.0
-margin_bottom = 263.0
+margin_bottom = 338.0
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
@@ -304,6 +303,7 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="Button" parent="Buttons"]
+visible = false
 margin_top = 267.0
 margin_right = 815.0
 margin_bottom = 338.0
@@ -335,11 +335,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "SceneTransition"
 anims/SceneTransition = SubResource( 3 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 10 )]
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Buttons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
+[connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
