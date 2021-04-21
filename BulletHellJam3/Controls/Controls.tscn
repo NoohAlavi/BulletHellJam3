@@ -69,6 +69,7 @@ margin_right = 236.0
 margin_bottom = 158.0
 rect_scale = Vector2( 3, 3 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0.980392, 1 )
 text = "Movement: WASD / Arrow Keys"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,6 +82,7 @@ margin_right = 580.0
 margin_bottom = 270.0
 rect_scale = Vector2( 3, 3 )
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "Shoot: LMB / Space"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -93,6 +95,7 @@ margin_right = 236.0
 margin_bottom = 374.0
 rect_scale = Vector2( 3, 3 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.345098, 1, 1 )
 text = "Toggle Debug Menu: f3"
 __meta__ = {
 "_edit_use_anchors_": false
