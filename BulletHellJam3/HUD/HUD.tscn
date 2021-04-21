@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/aldo_the_apache/AldotheApache.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Fonts/Linebeam/Linebeam.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://HUD/health_bar_full.png" type="Texture" id=4]
-[ext_resource path="res://HUD/health_bar_empty.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Hearts For Bullet Hell.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Cursor For Bullet Hell.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=2]
@@ -189,15 +188,14 @@ anims/Blindness = SubResource( 2 )
 anims/SceneTransition = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = 840.0
-margin_top = 512.0
-margin_right = 888.0
-margin_bottom = 528.0
+margin_left = 792.0
+margin_top = 384.0
+margin_right = 856.0
+margin_bottom = 448.0
 rect_scale = Vector2( 3, 3 )
 max_value = 3.0
 value = 3.0
 rounded = true
-texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
