@@ -75,8 +75,8 @@ spread = 128.23
 gravity = Vector2( 0, 0 )
 initial_velocity = 96.56
 initial_velocity_random = 0.27
-color = Color( 0.960784, 0, 0.933333, 1 )
-hue_variation = -0.04
+color = Color( 1, 0, 0.913725, 1 )
+hue_variation = 0.1
 hue_variation_random = 1.0
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 [connection signal="timeout" from="BurstTimer" to="." method="_on_BurstTimer_timeout"]

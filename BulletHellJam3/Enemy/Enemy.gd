@@ -10,16 +10,17 @@ onready var world = get_parent().get_parent()
 onready var health = max_health
 onready var player = world.get_node("Player")
 onready var sprite = $Sprite
+onready var particles = $SpawnParticles
 
 func _ready():
 	randomize()
 	sprite.hide()
 	pick_type()
-	$SpawnParticles.show()
+	particles.show()
 	$CollisionShape2D.set_deferred("disabled", true)
 	yield(get_tree().create_timer(2), "timeout")
 	sprite.show()
-	$SpawnParticles.hide()
+	particles.hide()
 	$CollisionShape2D.set_deferred("disabled", false)
 	spawned = true
 	shoot()
@@ -28,10 +29,16 @@ func pick_type():
 	var rand = round(rand_range(1, 3))
 	if rand == 1:
 		sprite.animation = "Red"
+		particles.color = Color(255, 0, 0)
+		max_health = 40
 	elif rand == 2:
 		sprite.animation = "Pink"
+		particles.color = Color("f500ee")
+		max_health = 20
 	elif rand == 3:
 		sprite.animation = "Green"
+		particles.color = Color(0, 255, 0)
+		max_health = 10
 	else:
 		print("Error: Unknown type number " + str(rand))
 
