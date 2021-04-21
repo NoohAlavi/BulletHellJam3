@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	if $EnemyHolder.get_child_count() == 0:
 		spawn_enemies()
 		spawn_timer.start()
+	$HUDLayer/HUD/Timer.set_time($TenSecondTimer.time_left)
 
 func spawn_enemies():
 	var enemies_to_spawn = round(rand_range(min_enemies_to_spawn, max_enemies_to_spawn))
