@@ -9,18 +9,31 @@ export var spawned: bool = false
 onready var world = get_parent().get_parent()
 onready var health = max_health
 onready var player = world.get_node("Player")
+onready var sprite = $Sprite
 
 func _ready():
 	randomize()
-	$Sprite.hide()
+	sprite.hide()
+	pick_type()
 	$SpawnParticles.show()
 	$CollisionShape2D.set_deferred("disabled", true)
 	yield(get_tree().create_timer(2), "timeout")
-	$Sprite.show()
+	sprite.show()
 	$SpawnParticles.hide()
 	$CollisionShape2D.set_deferred("disabled", false)
 	spawned = true
 	shoot()
+
+func pick_type():
+	var rand = round(rand_range(1, 3))
+	if rand == 1:
+		sprite.animation = "Red"
+	elif rand == 2:
+		sprite.animation = "Pink"
+	elif rand == 3:
+		sprite.animation = "Green"
+	else:
+		print("Error: Unknown type number " + str(rand))
 
 func damage(dmg: float):
 	if not spawned:
