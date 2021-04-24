@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Flight.mp3-3f4398c8c932e8990fa8a42491a5024d.mp3str"
+
+[deps]
+
+source_file="res://MainMenu/Flight.mp3"
+dest_files=[ "res://.import/Flight.mp3-3f4398c8c932e8990fa8a42491a5024d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

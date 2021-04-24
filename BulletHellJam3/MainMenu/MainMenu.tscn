@@ -14,14 +14,14 @@
 [ext_resource path="res://Assets/Sprites/Green Square For Bullet Hell without face.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Fonts/aldo_the_apache/AldotheApache.tres" type="DynamicFont" id=13]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 outline_size = 1
 outline_color = Color( 0.117647, 0, 0.941176, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "SceneTransition"
 length = 0.7
 tracks/0/type = "value"
@@ -212,9 +212,9 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
 [node name="Title" type="Label" parent="."]
-margin_top = 88.0
+margin_top = 64.0
 margin_right = 1024.0
-margin_bottom = 153.0
+margin_bottom = 129.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "Bright Barrage"
@@ -256,7 +256,7 @@ margin_top = 117.0
 margin_right = 815.0
 margin_bottom = 188.0
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
 enabled_focus_mode = 0
@@ -273,7 +273,7 @@ margin_top = 192.0
 margin_right = 815.0
 margin_bottom = 263.0
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
 enabled_focus_mode = 0
@@ -290,7 +290,7 @@ margin_top = 267.0
 margin_right = 815.0
 margin_bottom = 338.0
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
 enabled_focus_mode = 0
@@ -308,7 +308,7 @@ margin_top = 267.0
 margin_right = 815.0
 margin_bottom = 338.0
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_hover = Color( 0, 1, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 0, 1 )
 enabled_focus_mode = 0
@@ -333,9 +333,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/SceneTransition = SubResource( 3 )
+anims/SceneTransition = SubResource( 2 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 10 )]
+
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Buttons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_CreditsButton_pressed"]
